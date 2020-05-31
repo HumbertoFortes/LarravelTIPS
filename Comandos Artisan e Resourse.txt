@@ -1,0 +1,2 @@
+php artisan make:controller Form\TestController --resource --model=User
+_Esse comando cria métodos no controller com injeções de dependência
