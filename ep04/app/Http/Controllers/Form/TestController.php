@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Form;
 use App\Http\Controllers\Controller;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class TestController extends Controller
 {
@@ -29,7 +30,7 @@ class TestController extends Controller
      */
     public function create()
     {
-        //
+        return view('newUser');
     }
 
     /**
@@ -40,7 +41,13 @@ class TestController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $user = new User();
+        $user->name = $request->nome;
+        $user->email = $request->email;
+        $user->password = Hash::make($request->senha);
+        $user->save();
+
+        return redirect()->route('user.index');
     }
 
     /**

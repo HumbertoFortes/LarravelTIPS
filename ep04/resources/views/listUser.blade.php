@@ -11,6 +11,8 @@
     <h1>Nome Usuário: {{ $user->name }}</h1>
     <p>Email: {{ $user->email }}</p>
     <p>Data de Criação: {{date('d/m/Y H:i' , strtotime($user->creted_at))}}</p>
+    <br>
 
+    <a href="{{ route('user.index') }}">Listar todos usuários</a>
 </body>
 </html>
