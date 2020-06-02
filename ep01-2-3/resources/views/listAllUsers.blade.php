@@ -32,6 +32,8 @@
                 </td>
             </tr>
         @endforeach
+        <br>
+        <br>
         
     </table>
 </body>

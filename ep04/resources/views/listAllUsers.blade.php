@@ -36,5 +36,8 @@
         @endforeach
         
     </table>
+    <br>
+    <br>
+    <a href="{{ route('user.create') }}">Adicionar Novo Usuário</a>
 </body>
 </html>
