@@ -72,7 +72,9 @@ class TestController extends Controller
      */
     public function edit(User $user)
     {
-        //
+        return view('editUser', [
+            'user' => $user
+        ]);
     }
 
     /**
@@ -84,7 +86,19 @@ class TestController extends Controller
      */
     public function update(Request $request, User $user)
     {
-        //
+        $user->name = $request->nome;
+
+        if(filter_var($request->email, FILTER_VALIDATE_EMAIL))
+        {
+            $user->email = $request->email;
+        }
+        if (!empty($request->senha)) 
+        {
+            $user->password = Hash::make($request->senha);
+        }
+
+        $user->save();
+        return redirect()->route('user.index'); // Após  salvar o user Redireciona-nos a página de listagem de usuários
     }
 
     /**
@@ -95,6 +109,8 @@ class TestController extends Controller
      */
     public function destroy(User $user)
     {
-        //
+        $user->delete();
+
+        return redirect()->route('user.index'); // Após  salvar o user Redireciona-nos a página de listagem de usuários
     }
 }

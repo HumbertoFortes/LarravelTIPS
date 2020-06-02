@@ -23,11 +23,13 @@
                 <td>{{ $user->email }}</td>
                 <td>
                     
-                    <form action="" method="post">
+                <form action="{{ route('user.destroy', ['user' => $user->id]) }}" method="post">
                         @csrf
                         @method('delete') <!--Form Spuff, falsificar o method-->
                         <input type="hidden" name="user" value="{{$user->id}}">
-                        <p><a href="{{ route('user.show', ['user' => $user->id]) }}">Ver Usuário</a> / <input type="submit" value="Remover"> </p>
+                    <p><a href="{{ route('user.show', ['user' => $user->id]) }}">Ver Usuário</a> 
+                        / <a href="{{ route('user.edit', ['user' => $user->id]) }}">Editar</a> 
+                        / <input type="submit" value="Remover"> </p>
                     </form>
                 </td>
             </tr>

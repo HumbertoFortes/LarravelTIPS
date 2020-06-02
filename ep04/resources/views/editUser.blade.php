@@ -8,8 +8,10 @@
 </head>
 <body>
     <h1>Editar dados de </h1>
-    <form action="{{ route('user.update, ['user' => $user->id]') }}" method="post">
+    <form action="{{ route('user.update', ['user' => $user->id]) }}" method="post">
         @csrf
+        @method('put')
+
         <label for="">Nome Usuário</label>
         <input type="text" name="nome" value="{{ $user->name }}">
 
@@ -20,6 +22,9 @@
         <input type="password" name="senha" id="">
 
         <input type="submit" value="Salvar Edição">
+        <br>
+        <br>
+        <a href="{{ route('user.index') }}">Listar todos usuários</a>
     </form>
     
 </body>
