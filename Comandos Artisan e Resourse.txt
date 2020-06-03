@@ -1,2 +1,12 @@
 php artisan make:controller Form\TestController --resource --model=User
 _Esse comando cria métodos no controller com injeções de dependência
+
+php artisan make:migration create_categories_table
+ou php artisan make:migration teste --create=teste1
+_ Criando tabela com o artisaan, versioamento de BD
+
+php artisan make:migration teste --table=teste1
+_ com esse comando nós fazemos a alteraçao dos campos da tabela
+
+php artisan migrate:rollback - desfaz todas as alterações feitas
+php artisan migrate:rollback --step-2  - desfaz as duas últimas alterações
