@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Post;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
@@ -11,8 +12,9 @@ class PostController extends Controller
         return view('form');
     }
 
-    public function debug()
+    public function debug(Request $request)
     {
-        # code...
+        $post = new Post();
+        $post->create($request->except('_token'));
     }
 }
