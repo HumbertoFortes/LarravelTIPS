@@ -12,4 +12,4 @@
 */
 
 Route::get('/', 'PostController@showForm');
-Route::get('/debug', 'PostController@debug')->name('debug');
+Route::post('/debug', 'PostController@debug')->name('debug');
