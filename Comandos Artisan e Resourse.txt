@@ -10,3 +10,6 @@ _ com esse comando nós fazemos a alteraçao dos campos da tabela
 
 php artisan migrate:rollback - desfaz todas as alterações feitas
 php artisan migrate:rollback --step-2  - desfaz as duas últimas alterações
+
+php artisan make:model Product -mcr
+_Esse comando cria as migrations, modelo e o controller, com nome de Product.
